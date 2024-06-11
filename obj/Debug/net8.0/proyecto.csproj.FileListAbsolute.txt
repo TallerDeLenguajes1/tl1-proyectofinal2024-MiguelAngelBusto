@@ -1,0 +1,5 @@
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.AssemblyInfoInputs.cache
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.AssemblyInfo.cs
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.sourcelink.json

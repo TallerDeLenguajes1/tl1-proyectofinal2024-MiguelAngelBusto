@@ -1,5 +1,5 @@
 using System.IO;
-namespace archivo
+namespace archivo;
 
 public enum FileMode {
     CreateNew,
@@ -12,10 +12,9 @@ public enum FileMode {
 
 
 public class ManejoArchivos {
-
     string ruta = "../Archivo/personajes.txt";
 
-public function Cargar (){
+/*public Cargar (){
     String line;
     try
     {
@@ -40,7 +39,7 @@ public function Cargar (){
     }
 }
 
-public function Guardar(){
+public Guardar(){
     try
     {
         StreamWriter sw = new StreamWriter(ruta);
@@ -57,8 +56,8 @@ public function Guardar(){
         Console.WriteLine("Ejecutando bloque final.");
     }
 }
-
-
+*/
+}
 
 /*
 Preguntas:
@@ -66,3 +65,4 @@ Preguntas:
 2) Podemos utilizar/crear algun tipo de interfaz?
 3) Hacer un diagrama de clases y sus relaciones.
 */
+

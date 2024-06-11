@@ -3,8 +3,7 @@ namespace archivo;
 
 
 public class PersonajesJson {
-    int ubicacion;
+   /* int ubicacion;
     List<Personajes> pj;
-
-    
+    */
 }
