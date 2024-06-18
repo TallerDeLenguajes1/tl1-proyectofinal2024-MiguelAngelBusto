@@ -2,21 +2,10 @@
 using personajes;
 using archivo;
 
-Console.WriteLine("Ingrese un nombre: ");
-string nombre = Console.ReadLine();
-Console.WriteLine("Ingrese un Apodo: ");
-string apodo = Console.ReadLine();
-Console.WriteLine("Ingrese una Fecha: ");
-string fechaN = Console.ReadLine();
-Console.WriteLine("Ingrese su edad: ");
-string edad = Console.ReadLine();
-int n;
-int.TryParse(edad, out n);
+FabricaDePersonajes aux = new FabricaDePersonajes();
+Personaje rival1 = aux.Fabricar();
 
-string format = "MM/dd/yyyy";
-
-DateTime dateTime = DateTime.ParseExact(fechaN, format, CultureInfo.InvariantCulture);
-Console.WriteLine(dateTime);
+System.Console.WriteLine(rival1.Datos.Apodo1);
 
 /*Datos datos = new Datos(Cargos.,nombre,apodo,dateTime,n);
 string dato;

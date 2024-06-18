@@ -2,12 +2,9 @@
 namespace personajes;
 
 public enum Cargos {
-    Guerrero,
-    Ingeniero,
-    Mago,
-    Elfo,
-    Orco,
-    Metemorfo
+    Fuego,
+    Agua,
+    Tierra
 }
 
 public class Datos {

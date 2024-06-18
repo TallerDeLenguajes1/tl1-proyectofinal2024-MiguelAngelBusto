@@ -3,3 +3,13 @@ C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.AssemblyInfoInputs.ca
 C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.AssemblyInfo.cs
 C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.csproj.CoreCompileInputs.cache
 C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.sourcelink.json
+C:\Users\Alumno\Desktop\proyecto\bin\Debug\net8.0\proyecto.exe
+C:\Users\Alumno\Desktop\proyecto\bin\Debug\net8.0\proyecto.deps.json
+C:\Users\Alumno\Desktop\proyecto\bin\Debug\net8.0\proyecto.runtimeconfig.json
+C:\Users\Alumno\Desktop\proyecto\bin\Debug\net8.0\proyecto.dll
+C:\Users\Alumno\Desktop\proyecto\bin\Debug\net8.0\proyecto.pdb
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.dll
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\refint\proyecto.dll
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.pdb
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\proyecto.genruntimeconfig.cache
+C:\Users\Alumno\Desktop\proyecto\obj\Debug\net8.0\ref\proyecto.dll
