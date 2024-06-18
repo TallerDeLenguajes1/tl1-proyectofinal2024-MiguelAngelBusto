@@ -1,14 +1,17 @@
 ﻿using System.Globalization;
 using personajes;
 using archivo;
-
+using mensajes;
 FabricaDePersonajes aux = new FabricaDePersonajes();
+Mensajes mens = new Mensajes();
 string Nombre;
 string Apodo;
 Cargos tipo;
 string fecha;
 string edad;
 string auxiciliar;
+Console.Clear();
+System.Console.WriteLine(mens.Menu());
 System.Console.WriteLine("Ingrese su Nombre: ");
 Nombre = System.Console.ReadLine();
 System.Console.WriteLine("Ingrese su Apodo: ");
@@ -20,10 +23,13 @@ System.Console.WriteLine("Ingrese su fecha de nacimiento (MM/DD/YYYY): ");
 fecha = Console.ReadLine();
 System.Console.WriteLine("Ingrese su Edad: ");
 edad = Console.ReadLine();
-Personaje usuario = aux.Fabricar(tipo,Nombre,Apodo,DateTime.ParseExact(fecha, "MM/dd/yyyy", CultureInfo.InvariantCulture),Int32.Parse(edad));
+Personaje usuario = aux.Fabricar(tipo,Nombre,Apodo,DateTime.ParseExact(fecha, "MM/dd/yyyy", CultureInfo.InvariantCulture),Int32.Parse(edad)-1);
 Personaje rival1 = aux.Fabricar();
 System.Console.WriteLine(usuario.Datos.Nombre1);
 System.Console.WriteLine(rival1.Datos.Tipo1);
+
+
+
 
 /*Datos datos = new Datos(Cargos.,nombre,apodo,dateTime,n);
 string dato;
