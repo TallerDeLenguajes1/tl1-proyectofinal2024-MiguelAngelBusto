@@ -1,16 +1,20 @@
 namespace personajes;
 
 public class Personaje {
-    Datos datos;
+    Datos datoPersonaje;
 
-    Caracteristicas caracteristicas;
+    Caracteristicas caracteristicasPersonaje;
 
-    public Personaje(Datos datos, Caracteristicas caracteristicas)
-    {
-        this.datos = datos;
-        this.caracteristicas = caracteristicas;
+    public Datos DatoPersonaje { get => datoPersonaje; set => datoPersonaje = value; }
+    public Caracteristicas CaracteristicasPersonaje { get => caracteristicasPersonaje; set => caracteristicasPersonaje = value; }
+
+    public Personaje(){
+        
     }
 
-    public Datos Datos { get => datos; set => datos = value; }
-    public Caracteristicas Caracteristicas { get => caracteristicas; set => caracteristicas = value; }
+    public Personaje(Datos datoPersonaje, Caracteristicas caracteristicasPersonaje)
+    {
+        this.datoPersonaje = datoPersonaje;
+        this.caracteristicasPersonaje = caracteristicasPersonaje;
+    }
 }

@@ -1,0 +1,1 @@
+{"DatoPersonaje":{"Nombre":"Miguel","Apodo":"bustos","FechaN":"1996-08-19T00:00:00","Edad":27,"Tipo":1},"CaracteristicasPersonaje":{"Velocidad":7,"Destreza":4,"Fuerza":3,"Nivel":6,"Armadura":5,"Salud":100}}

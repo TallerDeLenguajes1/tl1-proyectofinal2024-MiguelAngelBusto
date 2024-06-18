@@ -18,7 +18,7 @@ public class FabricaDePersonajes {
     public Personaje Fabricar (Cargos cargo, string Nombre,String Apodo,DateTime fecha, int edad){
         Datos aux = new Datos(cargo,Nombre,Apodo,fecha,edad);
         Personaje aux2 = Fabricar();
-        aux2.Datos = aux;
+        aux2.DatoPersonaje = aux;
         return aux2;
     }
 
