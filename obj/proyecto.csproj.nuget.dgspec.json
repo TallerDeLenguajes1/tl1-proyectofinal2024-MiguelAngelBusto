@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alumno\\Desktop\\proyecto\\proyecto.csproj": {}
+    "C:\\Users\\Sistemas10.SISTEMAS10\\Documents\\proyecto\\tl1-proyectofinal2024-MiguelAngelBusto\\proyecto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alumno\\Desktop\\proyecto\\proyecto.csproj": {
+    "C:\\Users\\Sistemas10.SISTEMAS10\\Documents\\proyecto\\tl1-proyectofinal2024-MiguelAngelBusto\\proyecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alumno\\Desktop\\proyecto\\proyecto.csproj",
+        "projectUniqueName": "C:\\Users\\Sistemas10.SISTEMAS10\\Documents\\proyecto\\tl1-proyectofinal2024-MiguelAngelBusto\\proyecto.csproj",
         "projectName": "proyecto",
-        "projectPath": "C:\\Users\\Alumno\\Desktop\\proyecto\\proyecto.csproj",
-        "packagesPath": "C:\\Users\\Alumno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alumno\\Desktop\\proyecto\\obj\\",
+        "projectPath": "C:\\Users\\Sistemas10.SISTEMAS10\\Documents\\proyecto\\tl1-proyectofinal2024-MiguelAngelBusto\\proyecto.csproj",
+        "packagesPath": "C:\\Users\\Sistemas10.SISTEMAS10\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sistemas10.SISTEMAS10\\Documents\\proyecto\\tl1-proyectofinal2024-MiguelAngelBusto\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Alumno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Sistemas10.SISTEMAS10\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +35,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -60,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

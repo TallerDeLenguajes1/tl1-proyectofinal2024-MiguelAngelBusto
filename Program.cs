@@ -2,6 +2,9 @@
 using personajes;
 using archivo;
 using mensajes;
+using System.Threading;
+
+
 FabricaDePersonajes aux = new FabricaDePersonajes();
 Mensajes mens = new Mensajes();
 string Nombre;
@@ -13,7 +16,7 @@ string auxiciliar;
 PersonajesJson json = new PersonajesJson();;
 Console.Clear();
 System.Console.WriteLine(mens.Menu());
-int x=0;
+int x=0,y=0;
 while(x>-1){
     auxiciliar = Console.ReadLine();
     x = Int32.Parse(auxiciliar);
@@ -35,10 +38,53 @@ while(x>-1){
         Personaje usuario = aux.Fabricar(tipo,Nombre,Apodo,DateTime.ParseExact(fecha, "MM/dd/yyyy", CultureInfo.InvariantCulture),Int32.Parse(edad)-1);
         json.Guardar(usuario);
         Personaje rival1 = aux.Fabricar();
+        Thread.Sleep(5000);
+        System.Console.WriteLine(mens.InterfaceCombate);
+        while ((y>-1 || y != 4) && usuario.Combates<10){
+            Console.Clear();
+            System.Console.WriteLine(mens.MenuCarga);
+                auxiciliar = Console.ReadLine();
+                y = Int32.Parse(auxiciliar);
+            if(Combate.Pelea(usuario,rival1)){
+                usuario.Combates++;
+            }
+        }
         break;
         case 2:
+        Console.Clear();
         usuario = json.Cargar();
-
+        System.Console.WriteLine("\n\n\nCargador con exito!!");
+        Thread.Sleep(3000);
+        Console.Clear();
+        while ((y>-1 || y != 4) && usuario.Combates<10){
+            System.Console.WriteLine(mens.MenuCarga(usuario.DatoPersonaje.Nombre));
+            System.Console.WriteLine(mens.InterfaceCombate());
+            Personaje rival2 = aux.Fabricar();
+            auxiciliar = Console.ReadLine();
+            y = Int32.Parse(auxiciliar);
+            System.Console.WriteLine(y);
+            switch(y){
+                case 1:
+                if(Combate.Pelea(usuario,rival2)){
+                usuario.Combates++;
+                System.Console.WriteLine("Combate Ganado!!");
+                }else {
+                    System.Console.WriteLine("Combate Perdido!!");
+                }
+                break;
+                case 2:
+                System.Console.WriteLine(mens.MsjCombate(usuario));
+                Thread.Sleep(6000);
+                break;
+                case 3:
+                json.Guardar(usuario);
+                break;
+                default:
+                y=-1;
+                break;
+            }
+            
+        }
         Console.Clear();
         System.Console.WriteLine(mens.MenuCarga(usuario.DatoPersonaje.Nombre));
         break;
@@ -51,8 +97,9 @@ while(x>-1){
         break;
         default:
         System.Console.WriteLine("Numero ingresado incorrecto, ingrese nuevamente");
-        break;
+        break;   
     }
+    System.Console.WriteLine(mens.Menu());
 }
 //System.Console.WriteLine(usuario.Datos.Nombre1);
 //System.Console.WriteLine(rival1.Datos.Tipo1);
