@@ -15,7 +15,7 @@ public class Mensajes
 
     public string InterfaceCombate()
     {
-        return "1) Comenzar siguiente combate\n2) Estadisticas del pokemon\n3) Guardar datos\n4) Salir al menu anterior\n\nCual sera su eleccion:";
+        return "\n\n\n\t\t1) Comenzar siguiente combate\n\t\t2) Estadisticas del pokemon\n\t\t3) Guardar datos\n\t\t4) Salir al menu anterior\n\n\t\tCual sera su eleccion:";
     }
 
     public string MsjCombate(Personaje p1)

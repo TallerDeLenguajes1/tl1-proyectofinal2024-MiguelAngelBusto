@@ -1,0 +1,1 @@
+{"DatoPersonaje":{"Nombre":"miguel","Apodo":"miguelo","FechaN":"1996-02-01T00:00:00","Edad":26,"Tipo":1},"CaracteristicasPersonaje":{"Velocidad":4,"Destreza":2,"Fuerza":6,"Nivel":1,"Armadura":6,"Salud":100},"Combates":0}

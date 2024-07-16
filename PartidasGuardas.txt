@@ -1,1 +1,1 @@
-{"DatoPersonaje":{"Nombre":"Miguel Angel Bustos","Apodo":"DarkNard","FechaN":"1996-08-19T00:00:00","Edad":26,"Tipo":1},"CaracteristicasPersonaje":{"Velocidad":9,"Destreza":9,"Fuerza":9,"Nivel":9,"Armadura":14,"Salud":140},"Combates":4}
+{"DatoPersonaje":{"Nombre":"daniel","Apodo":"el crack","FechaN":"1996-02-01T00:00:00","Edad":27,"Tipo":2},"CaracteristicasPersonaje":{"Velocidad":15,"Destreza":14,"Fuerza":18,"Nivel":11,"Armadura":18,"Salud":200},"Combates":10}

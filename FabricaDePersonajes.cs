@@ -22,4 +22,12 @@ public class FabricaDePersonajes {
         return aux2;
     }
 
+    public Personaje Fabricar (Cargos cargo, string Nombre,String Apodo,DateTime fecha, int edad,int combate){
+        Datos aux = new Datos(cargo,Nombre,Apodo,fecha,edad);
+        Personaje aux2 = Fabricar();
+        aux2.DatoPersonaje = aux;
+        aux2.Combates=combate;
+        return aux2;
+    }
+
 }
