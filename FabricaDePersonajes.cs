@@ -1,13 +1,24 @@
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 namespace personajes;
 
 public class FabricaDePersonajes {
+
+    // Crear una instancia del cargador de archivos
+    Rivales fileLoader = new Rivales();
+
+    // Leer los datos desde el archivo y mostrarlos
+    List<string> datosCargados;
 
     public Personaje Fabricar(){
 
     var seed = Environment.TickCount;
     var random = new Random(seed);
+    datosCargados = fileLoader.CargarDatos();
 
-    Datos pokemon = new Datos((Cargos)random.Next(0,3),"Rival 1","Rival 1",DateTime.Now,random.Next(18,40));
+     Datos pokemon = new Datos((Cargos)random.Next(0, 3), datosCargados[random.Next(0,9)],"Rival 1",DateTime.Now,random.Next(18,40));
 
     Caracteristicas carac = new Caracteristicas(random.Next(1,11),random.Next(1,5),random.Next(1,11),random.Next(1,11),random.Next(1,11),100);
 

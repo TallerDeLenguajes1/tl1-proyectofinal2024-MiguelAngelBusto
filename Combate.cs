@@ -10,22 +10,22 @@ public class Combate{
         int aux1 = p1.CaracteristicasPersonaje.Salud;
         int aux2 = p2.CaracteristicasPersonaje.Salud;
         Mensajes msj = new Mensajes();
-        System.Console.WriteLine("\nLas de tu rival: \n"+msj.MsjCombate(p1));
+        System.Console.WriteLine("\n"+p1.DatoPersonaje.Nombre+": \n"+msj.MsjCombate(p1));
         Thread.Sleep(2000);
-        System.Console.WriteLine("\nLas de tu rival: \n"+msj.MsjCombate(p2));
+        System.Console.WriteLine("\n"+p2.DatoPersonaje.Nombre+": \n" + msj.MsjCombate(p2));
         Thread.Sleep(3000);
         while(aux1>0 && aux2>0){
             if(i%2==0){
             Console.Clear();
             int dano = ((Ataque(p1)*Comparar(p1,p2))-Defensa(p2))/100;
             aux2=aux2-dano;
-            System.Console.WriteLine("TU\n\nDanio Generedado al rival: "+dano+"\n\nVida Restante: "+aux2);
+            System.Console.WriteLine(p1.DatoPersonaje.Nombre+"\n\nDanio Generedado al rival: " +dano+"\n\nVida Restante: "+aux2);
             Thread.Sleep(2000);
             } else {
             Console.Clear();
             int dano = ((Ataque(p2)*Comparar(p2,p1))-Defensa(p1))/100;
             aux1=aux1-dano;
-            System.Console.WriteLine("RIVAL\n\nDanio Recibido del rival: "+dano+"\n\nVida Restante: "+aux1);
+            System.Console.WriteLine(p2.DatoPersonaje.Nombre+"\n\nDanio Recibido del rival: " +dano+"\n\nVida Restante: "+aux1);
             Thread.Sleep(2000);
             }
             i++;

@@ -1,1 +1,1 @@
-{"DatoPersonaje":{"Nombre":"daniel","Apodo":"el crack","FechaN":"1996-02-01T00:00:00","Edad":27,"Tipo":2},"CaracteristicasPersonaje":{"Velocidad":15,"Destreza":14,"Fuerza":18,"Nivel":11,"Armadura":18,"Salud":200},"Combates":10}
+{"DatoPersonaje":{"Nombre":"Miguel","Apodo":"Bustos","FechaN":"1996-08-19T00:00:00","Edad":26,"Tipo":1},"CaracteristicasPersonaje":{"Velocidad":3,"Destreza":2,"Fuerza":2,"Nivel":2,"Armadura":4,"Salud":100},"Combates":0}

@@ -15,8 +15,18 @@ string edad;
 string auxiciliar;
 PersonajesJson json = new PersonajesJson(); ;
 Console.Clear();
-System.Console.WriteLine(mens.Menu());
 int x = 0, y = 0;
+ServicioApi apiClient = new ServicioApi();
+
+var datos = await apiClient.ObtenerDatosAsync();
+
+Rivales fileSaver = new Rivales();
+
+fileSaver.GuardarDatos(datos);
+Thread.Sleep(2000);
+Console.Clear();
+System.Console.WriteLine(mens.Menu());
+
 while (x > -1)
 {
     auxiciliar = Console.ReadLine();
@@ -32,33 +42,70 @@ while (x > -1)
             System.Console.WriteLine("\n\n\t\t3)Elija el pokemon a usar:\n1)Charmander\n2)Squirtle\n3)Bulbasaur\n\nIngrese su eleccion:");
             auxiciliar = System.Console.ReadLine();
             tipo = (Cargos)Int32.Parse(auxiciliar);
-            System.Console.WriteLine("\n\n\t\t4)Ingrese su fecha de nacimiento (MM/DD/YYYY): ");
+            System.Console.WriteLine("\n\n\t\t4)Ingrese su fecha de nacimiento (DD/MM/YYYY): ");
             fecha = Console.ReadLine();
             System.Console.WriteLine("\n\n\t\t5)Ingrese su Edad: ");
             edad = Console.ReadLine();
-            Personaje usuario = aux.Fabricar(tipo, Nombre, Apodo, DateTime.ParseExact(fecha, "MM/dd/yyyy", CultureInfo.InvariantCulture), Int32.Parse(edad) - 1, 0);
+            Personaje usuario = aux.Fabricar(tipo, Nombre, Apodo, DateTime.ParseExact(fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture), Int32.Parse(edad) - 1, 0);
             json.Guardar(usuario);
-            Personaje rival1 = aux.Fabricar();
-            Thread.Sleep(3000);
-            while ((y > -1 || y != 4) && usuario.Combates <= 10)
-            {
-                if (usuario.Combates >= 10)
-                {
-                    System.Console.WriteLine("Felicidades ganaste 10 combates, pasaras al registro de campeones!");
-                    json.Guardar(usuario, "Campeones.txt");
-                    Thread.Sleep(4000);
-                    break;
-                }
-                Console.Clear();
-                //System.Console.WriteLine(mens.MenuCarga);
+            Console.Clear();
+            System.Console.WriteLine("Datos guardados exitosamente.");
+            Thread.Sleep(2000); 
+            do {
+                System.Console.WriteLine(mens.MenuCarga(usuario.DatoPersonaje.Nombre));
                 System.Console.WriteLine(mens.InterfaceCombate());
+                Personaje rival2 = aux.Fabricar();
                 auxiciliar = Console.ReadLine();
                 y = Int32.Parse(auxiciliar);
-                if (Combate.Pelea(usuario, rival1))
+                System.Console.WriteLine(y);
+                switch (y)
                 {
-                    usuario.Combates++;
+                    case 1:
+                        if (Combate.Pelea(usuario, rival2))
+                        {
+                            usuario.Combates++;
+                            Console.Clear();
+                            System.Console.WriteLine("Combate Ganado!!");
+                            Thread.Sleep(2000);
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            System.Console.WriteLine("Combate Perdido!!");
+                            Thread.Sleep(2000);
+                        }
+                        break;
+                    case 2:
+                        System.Console.WriteLine(mens.MsjCombate(usuario));
+                        Thread.Sleep(6000);
+                        break;
+                    case 3:
+                        Console.Clear();
+                        json.Guardar(usuario);
+                        System.Console.WriteLine("Datos guardados exitosamente.");
+                        Thread.Sleep(2000);
+                        break;
+                    case 4:
+                        y = -1;
+                        break;
+                    default:
+                        Console.Clear();
+                        System.Console.WriteLine("Opción no válida, vuelva a intentarlo.");
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        break;
                 }
+            } while (y != -1 && usuario.Combates < 10);
+
+            if (usuario.Combates >= 10)
+            {
+                json.Guardar(usuario);
+                System.Console.WriteLine("Felicidades ganaste 10 combates, pasaras al registro de campeones!");
+                json.Guardar(usuario, "Campeones.txt");
+                Thread.Sleep(4000);
             }
+            Console.Clear();
+            System.Console.WriteLine(mens.MenuCarga(usuario.DatoPersonaje.Nombre));
             break;
         case 2:
             Console.Clear();
@@ -144,7 +191,7 @@ while (x > -1)
         case 4:
             Console.Clear();
             System.Console.WriteLine("Terminando el programa...");
-            Thread.Sleep(1000);  // Esperar un segundo antes de terminar
+            Thread.Sleep(3000);  // Esperar un segundo antes de terminar
             Environment.Exit(0);
             break;
         default:
@@ -153,13 +200,3 @@ while (x > -1)
     }
     System.Console.WriteLine(mens.Menu());
 }
-//System.Console.WriteLine(usuario.Datos.Nombre1);
-//System.Console.WriteLine(rival1.Datos.Tipo1);
-
-
-
-
-/*Datos datos = new Datos(Cargos.,nombre,apodo,dateTime,n);
-string dato;
-string.TryParse(datos, out dato);
-*/
