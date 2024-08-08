@@ -12,17 +12,17 @@ public class Rivales
         {
             try
             {
-                // Verificar si el archivo existe
+                
                 if (!File.Exists(_nombreArchivo))
                 {
-                    // Crear el archivo si no existe
+                    
                     using (FileStream fs = File.Create(_nombreArchivo))
                     {
-                        // No es necesario escribir nada aquí, ya que solo queremos crear el archivo
+                        
                     }
                 }
 
-                // Guardar los datos en el archivo
+                
                 File.WriteAllLines(_nombreArchivo, datos);
                 Console.WriteLine($"Datos guardados en {_nombreArchivo}");
             }

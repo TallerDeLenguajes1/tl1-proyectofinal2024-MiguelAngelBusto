@@ -74,10 +74,13 @@ while (x > -1)
                             System.Console.WriteLine("Combate Perdido!!");
                             Thread.Sleep(2000);
                         }
+                        Console.Clear();
                         break;
                     case 2:
+                        Console.Clear();
                         System.Console.WriteLine(mens.MsjCombate(usuario));
                         Thread.Sleep(6000);
+                        Console.Clear();
                         break;
                     case 3:
                         Console.Clear();
@@ -139,19 +142,23 @@ while (x > -1)
                         {
                             System.Console.WriteLine("Combate Perdido!!");
                         }
+                        Thread.Sleep(2000);
+                        Console.Clear();
                         break;
                     case 2:
+                        Console.Clear();
                         System.Console.WriteLine(mens.MsjCombate(usuario));
                         Thread.Sleep(6000);
+                        Console.Clear();
                         break;
                     case 3:
                         Console.Clear();
                         json.Guardar(usuario);
                         System.Console.WriteLine("Datos guardados exitosamente.");
-                        Thread.Sleep(2000); // Tiempo para confirmación
+                        Thread.Sleep(2000);
                         break;
                     case 4:
-                        y = -1; // Salir al menú anterior
+                        y = -1;
                         break;
                     default:
                         Console.Clear();
@@ -191,7 +198,7 @@ while (x > -1)
         case 4:
             Console.Clear();
             System.Console.WriteLine("Terminando el programa...");
-            Thread.Sleep(3000);  // Esperar un segundo antes de terminar
+            Thread.Sleep(3000);
             Environment.Exit(0);
             break;
         default:

@@ -20,8 +20,6 @@ namespace personajes
                     HttpResponseMessage response = await client.GetAsync(_url);
                     response.EnsureSuccessStatusCode();
                     string json = await response.Content.ReadAsStringAsync();
-
-                    // Deserializa el JSON a un arreglo de strings
                     return System.Text.Json.JsonSerializer.Deserialize<string[]>(json);
                 }
                 catch (Exception ex)

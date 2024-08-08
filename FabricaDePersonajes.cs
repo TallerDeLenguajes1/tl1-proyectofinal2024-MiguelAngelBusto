@@ -6,10 +6,8 @@ namespace personajes;
 
 public class FabricaDePersonajes {
 
-    // Crear una instancia del cargador de archivos
     Rivales fileLoader = new Rivales();
 
-    // Leer los datos desde el archivo y mostrarlos
     List<string> datosCargados;
 
     public Personaje Fabricar(){
