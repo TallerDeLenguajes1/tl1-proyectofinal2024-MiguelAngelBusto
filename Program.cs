@@ -179,6 +179,7 @@ while (x > -1)
             System.Console.WriteLine(mens.MenuCarga(usuario.DatoPersonaje.Nombre));
             break;
         case 3:
+            Console.Clear();
             List<Personaje> campeones = new List<Personaje>();
             campeones = json.CargarCampeones("Campeones.txt");
             if (campeones.Count() != 0)
