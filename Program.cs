@@ -10,43 +10,76 @@ Mensajes mens = new Mensajes();
 string Nombre;
 string Apodo;
 Cargos tipo;
-string fecha;
-string edad;
+int edad;
 string auxiciliar;
+bool entradaValida;
 PersonajesJson json = new PersonajesJson(); ;
 Console.Clear();
 int x = 0, y = 0;
 ServicioApi apiClient = new ServicioApi();
-
-var datos = await apiClient.ObtenerDatosAsync();
-
-Rivales fileSaver = new Rivales();
-
-fileSaver.GuardarDatos(datos);
+await apiClient.ObtenerDatosAsync();
 Thread.Sleep(2000);
 Console.Clear();
 System.Console.WriteLine(mens.Menu());
 
-while (x > -1)
+while (x > -1 )
 {
     auxiciliar = Console.ReadLine();
-    x = Int32.Parse(auxiciliar);
+    entradaValida = Int32.TryParse(auxiciliar, out x);
+    if(entradaValida){
     switch (x)
     {
         case 1:
             Console.Clear();
             System.Console.WriteLine("\n\n\t\t1)Ingrese su Nombre: ");
             Nombre = System.Console.ReadLine();
+            while(string.IsNullOrWhiteSpace(Nombre)){
+                Console.Clear();
+                Console.WriteLine(string.IsNullOrWhiteSpace(Nombre));
+                Console.WriteLine("\nNombre ingresado incorrectamente ingresado incorrectamente");
+                System.Console.WriteLine("\n\n\t\t1)Ingrese un Nombre valido: ");
+                Nombre = System.Console.ReadLine();
+            }
+            Console.Clear();
             System.Console.WriteLine("\n\n\t\t2)Ingrese su Apodo: ");
             Apodo = System.Console.ReadLine();
-            System.Console.WriteLine("\n\n\t\t3)Elija el pokemon a usar:\n1)Charmander\n2)Squirtle\n3)Bulbasaur\n\nIngrese su eleccion:");
-            auxiciliar = System.Console.ReadLine();
-            tipo = (Cargos)Int32.Parse(auxiciliar);
-            System.Console.WriteLine("\n\n\t\t4)Ingrese su fecha de nacimiento (DD/MM/YYYY): ");
-            fecha = Console.ReadLine();
-            System.Console.WriteLine("\n\n\t\t5)Ingrese su Edad: ");
-            edad = Console.ReadLine();
-            Personaje usuario = aux.Fabricar(tipo, Nombre, Apodo, DateTime.ParseExact(fecha, "dd/MM/yyyy", CultureInfo.InvariantCulture), Int32.Parse(edad) - 1, 0);
+            while(string.IsNullOrWhiteSpace(Apodo)){
+                Console.Clear();
+                Console.WriteLine("\nNombre ingresado incorrectamente ingresado incorrectamente");
+                System.Console.WriteLine("\n\n\t\t1)Ingrese un Nombre valido: ");
+                Apodo = System.Console.ReadLine();
+            }
+            Console.Clear();
+            int cargo;
+            bool esValido;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("\n\n\t\t3) Elija el pokemon a usar:\n1) Charmander\n2) Squirtle\n3) Bulbasaur\n\nIngrese su elección:");
+                auxiciliar = Console.ReadLine();
+                esValido = Int32.TryParse(auxiciliar, out cargo);
+
+                if (!esValido || cargo < 1 || cargo > 3)
+                {
+                    esValido = false;
+                }
+            } while (!esValido);
+            Console.Clear();
+            string fechaInput;
+            DateTime fecha;
+            Console.WriteLine("\n\n\t\t4) Ingrese su fecha de nacimiento (DD/MM/YYYY): ");
+            fechaInput = Console.ReadLine();
+            while (!DateTime.TryParseExact(fechaInput, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out fecha))
+            {
+            Console.Clear();
+            Console.WriteLine("Formato de fecha inválido. Asegúrate de usar el formato dd/MM/yyyy.");
+            Console.WriteLine("\n\n\t\t4) Ingrese su fecha de nacimiento (DD/MM/YYYY): ");
+            fechaInput = Console.ReadLine();
+            }
+            DateTime hoy = DateTime.Now;
+            edad = hoy.Year - fecha.Year;
+            Personaje usuario = aux.Fabricar((Cargos)cargo, Nombre, Apodo, fecha , edad , 0);
             json.Guardar(usuario);
             Console.Clear();
             System.Console.WriteLine("Datos guardados exitosamente.");
@@ -207,4 +240,12 @@ while (x > -1)
             break;
     }
     System.Console.WriteLine(mens.Menu());
+    } else {
+    Console.Clear();
+    System.Console.WriteLine("Ingreso Incorrecto");
+    Thread.Sleep(2000);
+    x = 0;
+    Console.Clear();
+    System.Console.WriteLine(mens.Menu());
+    }
 }
