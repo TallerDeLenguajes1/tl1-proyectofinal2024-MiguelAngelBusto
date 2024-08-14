@@ -1,1 +1,1 @@
-{"DatoPersonaje":{"Nombre":"Miguel","Apodo":"Bustos","FechaN":"1996-08-19T00:00:00","Edad":28,"Tipo":1},"CaracteristicasPersonaje":{"Velocidad":9,"Destreza":4,"Fuerza":2,"Nivel":16,"Armadura":6,"Salud":200},"Combates":10}
+{"DatoPersonaje":{"Nombre":"Miguel","Apodo":"Bustos","FechaN":"2025-08-19T00:00:00","Edad":-1,"Tipo":1},"CaracteristicasPersonaje":{"Velocidad":9,"Destreza":3,"Fuerza":5,"Nivel":7,"Armadura":14,"Salud":200},"Combates":10,"Vidas":4}

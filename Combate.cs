@@ -20,14 +20,24 @@ public class Combate{
             Console.Clear();
             int dano = ((Ataque(p1)*Comparar(p1,p2))-Defensa(p2))/100;
             aux2=aux2-dano;
+            if(aux2>=0){
             System.Console.WriteLine(p1.DatoPersonaje.Nombre+"\n\nDanio Generedado al rival: " +dano+"\n\nVida Restante: "+aux2);
             Thread.Sleep(2000);
+            } else {
+                System.Console.WriteLine(p1.DatoPersonaje.Nombre+"\n\nDanio Generedado al rival: " +dano+"\n\nVida Restante: 0");
+            Thread.Sleep(2000);
+            }
             } else {
             Console.Clear();
             int dano = ((Ataque(p2)*Comparar(p2,p1))-Defensa(p1))/100;
             aux1=aux1-dano;
-            System.Console.WriteLine(p2.DatoPersonaje.Nombre+"\n\nDanio Recibido del rival: " +dano+"\n\nVida Restante: "+aux1);
-            Thread.Sleep(2000);
+            if(aux1>=0){
+                System.Console.WriteLine(p2.DatoPersonaje.Nombre+"\n\nDanio Recibido del rival: " +dano+"\n\nVida Restante: "+aux1);
+                Thread.Sleep(2000);
+            } else {
+                System.Console.WriteLine(p2.DatoPersonaje.Nombre+"\n\nDanio Recibido del rival: " +dano+"\n\nVida Restante: 0");
+                Thread.Sleep(2000);
+            }
             }
             i++;
         }
@@ -74,6 +84,7 @@ public class Combate{
                         {
                             Console.Clear();
                             System.Console.WriteLine("Combate Perdido!!");
+                            usuario.Vidas--;
                             Thread.Sleep(2000);
                         }
                         Console.Clear();

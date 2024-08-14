@@ -10,12 +10,12 @@ public class Mensajes
 
     public string MenuCarga(string nombre)
     {
-        return "\n\n\n\n\n\t\t-----------------------------------------\n\t\t|\t" + nombre + "\t\t|\n\t\t-----------------------------------------\n\n\n\n\n";
+        return "\n\n\n\n\n\t\t-----------------------------------------\n\t\t|\t\tPOKEMON\t\t\t|\n\t\t-----------------------------------------\n\n\n\n\n";
     }
 
     public string InterfaceCombate()
     {
-        return "\n\n\n\t\t1) Comenzar siguiente combate\n\t\t2) Estadisticas del pokemon\n\t\t3) Guardar datos\n\t\t4) Salir al menu anterior\n\n\t\tCual sera su eleccion:";
+        return "\n\t\t1) Comenzar siguiente combate\n\t\t2) Estadisticas del pokemon\n\t\t3) Guardar datos\n\t\t4) Salir al menu anterior\n\n\t\tCual sera su eleccion:";
     }
 
     public string MsjCombate(Personaje p1)

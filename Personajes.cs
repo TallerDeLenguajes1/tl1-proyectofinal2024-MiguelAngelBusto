@@ -7,10 +7,14 @@ public class Personaje {
 
     int combates;
 
+    int vidas;
+
+
     public Datos DatoPersonaje { get => datoPersonaje; set => datoPersonaje = value; }
     public Caracteristicas CaracteristicasPersonaje { get => caracteristicasPersonaje; set => caracteristicasPersonaje = value; }
     public int Combates { get => combates; set => combates = value; }
 
+    public int Vidas { get => vidas; set => vidas = value; }
     public Personaje(){
         
     }
