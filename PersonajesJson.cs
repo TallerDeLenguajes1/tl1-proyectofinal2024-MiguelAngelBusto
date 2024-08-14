@@ -13,13 +13,13 @@ public class PersonajesJson {
 
     public void Guardar (Personaje aux){
         string jsonString = JsonSerializer.Serialize(aux);
-        string filePath = "PartidasGuardas.txt";
+        string filePath = "PartidasGuardas.json";
         File.WriteAllText(filePath,jsonString);
         System.Console.WriteLine("Guardado con exito");
     }
 
     public Personaje Cargar(){
-        string filePath = "PartidasGuardas.txt";
+        string filePath = "PartidasGuardas.json";
         string jsonString = File.ReadAllText(filePath);
         Personaje personaje = JsonSerializer.Deserialize<Personaje>(jsonString);
         return personaje;
@@ -27,38 +27,27 @@ public class PersonajesJson {
 
 public void Guardar(Personaje aux, string ubi) {
     try {
-        // Serializar el objeto Personaje a una cadena JSON
         string jsonString = JsonSerializer.Serialize(aux);
         
-        // Abrir el archivo para añadir datos (append)
         using (StreamWriter sw = File.AppendText(ubi)) {
-            // Escribir la cadena JSON al archivo
             sw.WriteLine(jsonString);
         }
-        
-        // Confirmación de guardado exitoso
         System.Console.WriteLine("Guardado con éxito en: " + ubi);
     } catch (Exception ex) {
-        // Manejo de errores
         System.Console.WriteLine($"Error al guardar el personaje: {ex.Message}");
     }
 }
 
 public List<Personaje> CargarCampeones(string ubi) {
     List<Personaje> personajes = new List<Personaje>();
-
-    // Verificar si el archivo existe
     if (!File.Exists(ubi)) {
         System.Console.WriteLine("Archivo no encontrado: " + ubi);
         return personajes;
     }
 
     try {
-        // Leer todas las líneas del archivo
         string[] lines = File.ReadAllLines(ubi);
         System.Console.WriteLine("Archivo leído correctamente. Número de líneas: " + lines.Length);
-
-        // Deserializar cada línea a un objeto Personaje
         foreach (string line in lines) {
             if (!string.IsNullOrWhiteSpace(line)) {
                 try {
@@ -77,9 +66,42 @@ public List<Personaje> CargarCampeones(string ubi) {
 
         return personajes;
     } catch (Exception ex) {
-        // Manejo de errores
         System.Console.WriteLine($"Error al cargar los personajes: {ex.Message}");
         return new List<Personaje>();
     }
+
 }
+    public List<string> CargarListaDeStrings()
+    {
+        try
+        {
+            using (StreamReader reader = new StreamReader("nombres.json"))
+            {
+                string jsonString = reader.ReadToEnd();
+                List<string> lista = JsonSerializer.Deserialize<List<string>>(jsonString);
+                
+                if (lista == null)
+                {
+                    throw new InvalidOperationException("El archivo está vacío o no se pudo deserializar la lista.");
+                }
+
+                return lista;
+            }
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("El archivo no se encontró.");
+            return new List<string>(); // Retorna una lista vacía en caso de error
+        }
+        catch (JsonException)
+        {
+            Console.WriteLine("El archivo no contiene datos válidos.");
+            return new List<string>(); // Retorna una lista vacía en caso de error
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar el archivo: {ex.Message}");
+            return new List<string>(); // Retorna una lista vacía en caso de error
+        }
+    }
 }

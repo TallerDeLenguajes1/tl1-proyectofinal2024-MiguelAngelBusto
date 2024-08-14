@@ -22,20 +22,14 @@ namespace personajes
                     HttpResponseMessage response = await client.GetAsync(_url);
                     response.EnsureSuccessStatusCode();
                     string json = await response.Content.ReadAsStringAsync();
-
-                    // Guardar los datos en nombres.json
                     File.WriteAllText(FilePath, json);
                     Console.WriteLine("Datos guardados en 'nombres.json'.");
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error al obtener los datos: {ex.Message}");
-                    
-                    // Crear una lista de 10 nombres aleatorios
                     var randomNames = GenerateRandomNames(10);
                     string fallbackJson = JsonSerializer.Serialize(randomNames);
-
-                    // Guardar la lista de nombres aleatorios en nombres.json
                     File.WriteAllText(FilePath, fallbackJson);
                     Console.WriteLine("Datos de respaldo guardados en 'nombres.json'.");
                 }

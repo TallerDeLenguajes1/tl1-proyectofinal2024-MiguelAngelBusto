@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using archivo;
 namespace personajes;
 
 public class FabricaDePersonajes {
 
-    Rivales fileLoader = new Rivales();
+    PersonajesJson aux = new PersonajesJson();
 
     List<string> datosCargados;
 
@@ -14,7 +15,7 @@ public class FabricaDePersonajes {
 
     var seed = Environment.TickCount;
     var random = new Random(seed);
-    datosCargados = fileLoader.CargarDatos();
+    datosCargados = aux.CargarListaDeStrings();
 
      Datos pokemon = new Datos((Cargos)random.Next(0, 3), datosCargados[random.Next(0,9)],"Rival 1",DateTime.Now,random.Next(18,40));
 

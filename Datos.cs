@@ -1,10 +1,9 @@
 
 namespace personajes;
-
 public enum Cargos: int {
-    Fuego=0,
+    Fuego=1,
     Agua=2,
-    Tierra=1
+    Tierra=3
 }
 
 public class Datos {

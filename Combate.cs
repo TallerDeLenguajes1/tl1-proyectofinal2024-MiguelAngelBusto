@@ -1,3 +1,4 @@
+using archivo;
 using mensajes;
 
 namespace personajes;
@@ -32,11 +33,7 @@ public class Combate{
         }
         if(aux1>aux2){
             p1.CaracteristicasPersonaje.Nivel++;
-            p1.CaracteristicasPersonaje.Armadura++;
             p1.CaracteristicasPersonaje.Salud=p1.CaracteristicasPersonaje.Salud+10;
-            p1.CaracteristicasPersonaje.Destreza++;
-            p1.CaracteristicasPersonaje.Fuerza++;
-            p1.CaracteristicasPersonaje.Velocidad++;
             return true;
         }else {
             return false;
@@ -59,5 +56,49 @@ public class Combate{
             return 100;
         }
         return 75;
+    }
+
+
+    public static void Menu (int y, Personaje usuario, Personaje rival2, Mensajes mens, PersonajesJson json){
+        switch (y)
+                {
+                    case 1:
+                        if (Combate.Pelea(usuario, rival2))
+                        {
+                            usuario.Combates++;
+                            Console.Clear();
+                            System.Console.WriteLine("Combate Ganado!!");
+                            Thread.Sleep(2000);
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            System.Console.WriteLine("Combate Perdido!!");
+                            Thread.Sleep(2000);
+                        }
+                        Console.Clear();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        System.Console.WriteLine(mens.MsjCombate(usuario));
+                        Thread.Sleep(6000);
+                        Console.Clear();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        json.Guardar(usuario);
+                        System.Console.WriteLine("Datos guardados exitosamente.");
+                        Thread.Sleep(2000);
+                        break;
+                    case 4:
+                        y = -1;
+                        break;
+                    default:
+                        Console.Clear();
+                        System.Console.WriteLine("Opción no válida, vuelva a intentarlo.");
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        break;
+                } 
     }
 }

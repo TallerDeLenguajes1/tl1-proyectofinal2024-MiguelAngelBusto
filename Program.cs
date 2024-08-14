@@ -89,59 +89,28 @@ while (x > -1 )
                 System.Console.WriteLine(mens.InterfaceCombate());
                 Personaje rival2 = aux.Fabricar();
                 auxiciliar = Console.ReadLine();
-                y = Int32.Parse(auxiciliar);
-                System.Console.WriteLine(y);
-                switch (y)
-                {
-                    case 1:
-                        if (Combate.Pelea(usuario, rival2))
-                        {
-                            usuario.Combates++;
-                            Console.Clear();
-                            System.Console.WriteLine("Combate Ganado!!");
-                            Thread.Sleep(2000);
-                        }
-                        else
-                        {
-                            Console.Clear();
-                            System.Console.WriteLine("Combate Perdido!!");
-                            Thread.Sleep(2000);
-                        }
-                        Console.Clear();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        System.Console.WriteLine(mens.MsjCombate(usuario));
-                        Thread.Sleep(6000);
-                        Console.Clear();
-                        break;
-                    case 3:
-                        Console.Clear();
-                        json.Guardar(usuario);
-                        System.Console.WriteLine("Datos guardados exitosamente.");
-                        Thread.Sleep(2000);
-                        break;
-                    case 4:
-                        y = -1;
-                        break;
-                    default:
+                entradaValida = Int32.TryParse(auxiciliar, out y);
+                if(entradaValida){
+                    Combate.Menu(y,usuario,rival2,mens,json);
+                    if(y==4){
+                    break;
+                }
+                } else {
                         Console.Clear();
                         System.Console.WriteLine("Opción no válida, vuelva a intentarlo.");
                         Thread.Sleep(2000);
                         Console.Clear();
-                        break;
-                }
+                        }
             } while (y != -1 && usuario.Combates < 10);
-
             if (usuario.Combates >= 10)
             {
                 json.Guardar(usuario);
                 System.Console.WriteLine("Felicidades ganaste 10 combates, pasaras al registro de campeones!");
                 json.Guardar(usuario, "Campeones.txt");
                 Thread.Sleep(4000);
+                break;
             }
             Console.Clear();
-            System.Console.WriteLine(mens.MenuCarga(usuario.DatoPersonaje.Nombre));
             break;
         case 2:
             Console.Clear();
@@ -161,60 +130,34 @@ while (x > -1 )
                 System.Console.WriteLine(mens.InterfaceCombate());
                 Personaje rival2 = aux.Fabricar();
                 auxiciliar = Console.ReadLine();
-                y = Int32.Parse(auxiciliar);
-                System.Console.WriteLine(y);
-                switch (y)
-                {
-                    case 1:
-                        if (Combate.Pelea(usuario, rival2))
-                        {
-                            usuario.Combates++;
-                            System.Console.WriteLine("Combate Ganado!!");
-                        }
-                        else
-                        {
-                            System.Console.WriteLine("Combate Perdido!!");
-                        }
-                        Thread.Sleep(2000);
-                        Console.Clear();
-                        break;
-                    case 2:
-                        Console.Clear();
-                        System.Console.WriteLine(mens.MsjCombate(usuario));
-                        Thread.Sleep(6000);
-                        Console.Clear();
-                        break;
-                    case 3:
-                        Console.Clear();
-                        json.Guardar(usuario);
-                        System.Console.WriteLine("Datos guardados exitosamente.");
-                        Thread.Sleep(2000);
-                        break;
-                    case 4:
-                        y = -1;
-                        break;
-                    default:
+                entradaValida = Int32.TryParse(auxiciliar, out y);
+                if(entradaValida){
+                Combate.Menu(y,usuario,rival2,mens,json);
+                if(y==4){
+                    break;
+                }
+                } else {
                         Console.Clear();
                         System.Console.WriteLine("Opción no válida, vuelva a intentarlo.");
-                        Thread.Sleep(2000); // Tiempo para mostrar mensaje de error
-                        break;
-                }
+                        Thread.Sleep(2000);
+                        Console.Clear();
+                        }
             } while (y != -1 && usuario.Combates < 10);
 
             if (usuario.Combates >= 10)
             {
                 json.Guardar(usuario);
                 System.Console.WriteLine("Felicidades ganaste 10 combates, pasaras al registro de campeones!");
-                json.Guardar(usuario, "Campeones.txt");
+                json.Guardar(usuario, "Campeones.json");
                 Thread.Sleep(4000);
+                break;
             }
             Console.Clear();
-            System.Console.WriteLine(mens.MenuCarga(usuario.DatoPersonaje.Nombre));
             break;
         case 3:
             Console.Clear();
             List<Personaje> campeones = new List<Personaje>();
-            campeones = json.CargarCampeones("Campeones.txt");
+            campeones = json.CargarCampeones("Campeones.json");
             if (campeones.Count() != 0)
             {
                 for (int i = 0; i < campeones.Count; i++)
